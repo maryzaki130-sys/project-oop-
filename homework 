@@ -1,0 +1,81 @@
+using System;
+
+class Employee
+{
+    private double salary;
+
+    public string Name { get; set; }
+
+    public int YearsOfExperience { get; set; }
+
+    public double Salary
+    {
+        get
+        {
+            return salary;
+        }
+        set
+        {
+            if (value >= 0)
+                salary = value;
+            else
+                salary = 0;
+        }
+    }
+
+    public string Level
+    {
+        get
+        {
+            if (YearsOfExperience < 2)
+                return "Junior";
+            else if (YearsOfExperience <= 5)
+                return "Mid";
+            else
+                return "Senior";
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Employee employee1 = new Employee();
+
+        Console.Write("Enter first employee name: ");
+        employee1.Name = Console.ReadLine();
+
+        Console.Write("Enter salary: ");
+        employee1.Salary = double.Parse(Console.ReadLine());
+
+        Console.Write("Enter years of experience: ");
+        employee1.YearsOfExperience = int.Parse(Console.ReadLine());
+
+
+        Employee employee2 = new Employee();
+
+        Console.Write("Enter second employee name: ");
+        employee2.Name = Console.ReadLine();
+
+        Console.Write("Enter salary: ");
+        employee2.Salary = double.Parse(Console.ReadLine());
+
+        Console.Write("Enter years of experience: ");
+        employee2.YearsOfExperience = int.Parse(Console.ReadLine());
+
+
+        Console.WriteLine("\nEmployee 1:");
+        Console.WriteLine("Name: " + employee1.Name);
+        Console.WriteLine("Salary: " + employee1.Salary);
+        Console.WriteLine("Experience: " + employee1.YearsOfExperience);
+        Console.WriteLine("Level: " + employee1.Level);
+
+
+        Console.WriteLine("\nEmployee 2:");
+        Console.WriteLine("Name: " + employee2.Name);
+        Console.WriteLine("Salary: " + employee2.Salary);
+        Console.WriteLine("Experience: " + employee2.YearsOfExperience);
+        Console.WriteLine("Level: " + employee2.Level);
+    }
+}
